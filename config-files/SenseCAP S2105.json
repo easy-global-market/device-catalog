@@ -1,0 +1,13 @@
+{
+    "chirpstack": {
+        "region": "EU868",
+        "macVersion": 0,
+        "regParamRevision": "A",
+        "adrAlgorithmId": "default",
+        "flushQueueOnAtivate": true,
+        "uplinkInterval": 86400,
+        "supportsOTAA": true,
+        "supportsClassB": false,
+        "supportsClassC": false
+    }
+}
