@@ -1,7 +1,7 @@
 {
     "chirpstack": {
         "region": "EU868",
-        "macVersion": 3,
+        "macVersion": 0,
         "regParamsRevision": "A",
         "adrAlgorithmId": "default",
         "flushQueueOnActivate": true,
@@ -9,5 +9,10 @@
         "supportsOTAA": true,
         "supportsClassB": false,
         "supportsClassC": false
+    },
+    "liveObjects": {
+        "profile": "Generic_classA_RX2SF12",
+        "activationType": "OTAA",
+        "connectivityPlan": "orange-cs/CP_Basic"
     }
 }
