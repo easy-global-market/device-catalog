@@ -9,5 +9,10 @@
         "supportsOTAA": true,
         "supportsClassB": false,
         "supportsClassC": false
+    },
+    "liveObjects": {
+        "profile": "Generic_classA_RX2SF12",
+        "activationType": "OTAA",
+        "connectivityPlan": "orange-cs/CP_Basic"
     }
 }
