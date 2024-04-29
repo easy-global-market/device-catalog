@@ -624,6 +624,9 @@ function ngsildWrapper(input, time) {
             buttonActivation: ngsildInstance(1, time, null, null)
         };
     }
+    else if (payload.Type_of_message === 'Keep_Alive') {
+        var ngsild_payload = {};
+    }
     else {
         throw new Error('Unsupported Type_of_message');
     }
