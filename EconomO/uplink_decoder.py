@@ -268,7 +268,7 @@ def ngsild_instance(value, time, unitCode, dataset_suffix):
     ngsild_instance = {
         "type": "Property",
         "value": value,
-        "time": time
+        "observedAt": time
     }
     if unitCode is not None:
         ngsild_instance['unitCode'] = unitCode
