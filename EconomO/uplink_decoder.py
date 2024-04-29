@@ -1,6 +1,6 @@
 import json
 import sys
-from datetime import datetime, UTC
+import datetime
            
 def read_timestamp(time_bytes):
     time_size = 4
@@ -12,9 +12,9 @@ def read_timestamp(time_bytes):
 
 def to_date(timestamp):
     try:
-        date = datetime.fromtimestamp(timestamp, UTC)
+        date = datetime.datetime.fromtimestamp(timestamp, datetime.UTC)
     except:
-        date = datetime.utcfromtimestamp(timestamp)
+        date = datetime.datetime.utcfromtimestamp(timestamp)
     return date.strftime("%Y-%m-%dT%H:%M:%SZ")
 
 def read_version(version_byte):
