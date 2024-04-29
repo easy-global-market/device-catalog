@@ -297,36 +297,36 @@ function ngsildInstance(value, time, unit) {
         observedAt: time,
         unitCode: unit,
         datasetId: 'urn:ngsi-ld:Dataset:Raw'
-    }
-    return ngsild_instance
+    };
+    return ngsild_instance;
 }
 
 function ngsildWrapper(input, time) {
-    var ngsild_payload = {}
-    var messages = input.data.messages
+    var ngsild_payload = {};
+    var messages = input.data.messages;
     for (let i = 0; i < messages.length; i++) {
         if (messages[i].type === 'report_telemetry') {
             if (messages[i].measurementId === 4102) {
-                ngsild_payload.soilTemperature = ngsildInstance(messages[i].measurementValue, time, 'CEL')
+                ngsild_payload.soilTemperature = ngsildInstance(messages[i].measurementValue, time, 'CEL');
             }
             else if (messages[i].measurementId === 4103) {
-                ngsild_payload.volumetricMoisture = ngsildInstance(messages[i].measurementValue, time, 'P1')
+                ngsild_payload.volumetricMoisture = ngsildInstance(messages[i].measurementValue, time, 'P1');
             }
             else if (messages[i].measurementId === 4108) {
-                ngsild_payload.soilElectricalConductivity = ngsildInstance(messages[i].measurementValue, time, 'H61')
+                ngsild_payload.soilElectricalConductivity = ngsildInstance(messages[i].measurementValue, time, 'H61');
             }
         }
     }
-    return ngsild_payload                                                                                                                                                                                                                                                                                                                                              
+    return ngsild_payload;                                                                                                                                                                                                                                                                                                                                          
 }
 
 function main() {
-    var fport = process.argv[2]
-    var bytes = Uint8Array.from(Buffer.from(process.argv[3], 'hex'))
-    var time = process.argv[4]
-    var decoded = Decode(fport, bytes)
-    var ngsild_payload = ngsildWrapper(decoded, time)
-    process.stdout.write(JSON.stringify(ngsild_payload))
+    var fport = process.argv[2];
+    var bytes = Uint8Array.from(Buffer.from(process.argv[3], 'hex'));
+    var time = process.argv[4];
+    var decoded = Decode(fport, bytes);
+    var ngsild_payload = ngsildWrapper(decoded, time);
+    process.stdout.write(JSON.stringify(ngsild_payload));
 }
 
 if (require.main === module) {
