@@ -11,7 +11,10 @@ def read_timestamp(time_bytes):
     return time
 
 def to_date(timestamp):
-    date = datetime.fromtimestamp(timestamp, UTC)
+    try:
+        date = datetime.fromtimestamp(timestamp, UTC)
+    except:
+        date = datetime.utcfromtimestamp(timestamp)
     return date.strftime("%Y-%m-%dT%H:%M:%SZ")
 
 def read_version(version_byte):
