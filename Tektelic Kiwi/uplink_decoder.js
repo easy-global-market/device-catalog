@@ -1218,7 +1218,9 @@ function ngsildWrapper(input, time) {
     ngsild_payload.lightIntensity = ngsildInstance(input.data.light_intensity, time, 'LUX', 'Raw');
     ngsild_payload.temperature = ngsildInstance(input.data.ambient_temperature, time, 'CEL', 'Raw');
     ngsild_payload.relativeHumidity = ngsildInstance(input.data.relative_humidity, time, 'P1', 'Raw');
-    ngsild_payload.batteryVoltage = ngsildInstance(input.data.battery_voltage, time, 'VLT', 'Raw');
+    if ('battery_voltage' in input.data) {
+        ngsild_payload.batteryVoltage = ngsildInstance(input.data.battery_voltage, time, 'VLT', 'Raw');
+    }
     return ngsild_payload;
 }
 
