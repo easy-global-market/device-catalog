@@ -245,7 +245,7 @@ def decode_pulse_counter(payload_bytes):
 
 def decode_payload(payload_string, port_string):
     payload_bytes = bytes.fromhex(payload_string)
-    decoded_data_json = ''
+    decoded_data_json = '{}'
     if port_string == '2':
         decoded_data_json = decode_eds_config(payload_bytes)
     elif port_string == '3':
